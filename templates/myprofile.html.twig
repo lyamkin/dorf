@@ -1,0 +1,321 @@
+{% extends "master.html.twig" %} {% block title %}My Profile{% endblock %} {%
+block content %} {% if errorList %}
+<div class="container pt-4">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for error in errorList %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %} {% if flashMessage %}
+<div class="container">
+  <div
+    class="alert alert-warning alert-dismissible fade show mt-4"
+    role="alert"
+  >
+    {{ flashMessage }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+<div class="container">
+  <ul class="nav nav-tabs mt-1">
+    <li class="nav-item">
+      <a class="nav-link active" href="/myprofile">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mymessages">My Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/ads">My Ads</a>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col col-md-8 offset-md-2">
+      <div class="card my-4">
+        <div class="card-header">
+          <img
+            class="card-header-image"
+            src="userimg/{{ user.userId }}"
+            alt="user picture"
+          />
+        </div>
+        <div class="card-body mt-4">
+          <span class="card-title h3 my-1 d-block">{{ user.name }} </span>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="font-weight-bold">Email</span
+              ><span>{{ user.email }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="font-weight-bold">Postal Code</span
+              ><span>{{ user.postalCode }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="font-weight-bold">Phone number</span
+              ><span>{{ user.phone }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-success-olive"
+            data-toggle="modal"
+            data-target="#editContactsModal"
+          >
+            Edit contacts
+          </button>
+          <button
+            type="button"
+            class="btn btn-success-olive"
+            data-toggle="modal"
+            data-target="#changePassModal"
+          >
+            Change password
+          </button>
+          <button
+            type="button"
+            class="btn btn-success-olive"
+            data-toggle="modal"
+            data-target="#changeImageModal"
+          >
+            Change image
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modals window for editing users information -->
+<div
+  class="modal fade"
+  id="editContactsModal"
+  tabindex="-1"
+  aria-labelledby="editCobtactsModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCobtactsModalLabel">
+          Edit contact information
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/myprofile/editcontacts" method="POST" id="contactEditForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name" class="col-form-label">User name:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              value="{{ user.name }}"
+              id="name"
+            />
+            <span class="text-danger" id="nameValidity"></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              value="{{ user.email }}"
+              id="email"
+            />
+            <span class="text-danger" id="emailValidity"></span>
+          </div>
+          <div class="form-group">
+            <label for="postal" class="col-form-label">Postal Code:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="postal"
+              value="{{ user.postalCode }}"
+              id="postal"
+            />
+            <span class="text-danger" id="postalValidity"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="col-form-label">Phone Number:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="phone"
+              value="{{ user.phone }}"
+              id="phone"
+            />
+            <span class="text-danger" id="phoneValidity"></span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <input
+            type="submit"
+            value="Save changes"
+            class="btn btn-success-olive"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- modals window for password change -->
+<div
+  class="modal fade"
+  id="changePassModal"
+  tabindex="-1"
+  aria-labelledby="changePassModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePassModalLabel">Change password</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form
+        action="/myprofile/changepass"
+        method="POST"
+        enctype="multipart/form-data"
+        id="passwordEditForm"
+      >
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="oldpassword" class="col-form-label"
+              >Old password:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              name="oldpassword"
+              id="oldpassword"
+            />
+          </div>
+          <div class="form-group">
+            <label for="newpassword" class="col-form-label"
+              >New password:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              name="newpassword"
+              id="newpassword"
+            />
+            <span class="text-danger" id="newPasswordValidity"></span>
+          </div>
+          <div class="form-group">
+            <label for="newpasswordrepeat" class="col-form-label"
+              >New password repeat:</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              name="newpasswordrepeat"
+              id="newpasswordrepeat"
+            />
+            <span class="text-danger" id="newPasswordRepeatValidity"></span>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <input
+              type="submit"
+              value="Change password"
+              class="btn btn-success-olive"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- modals window for image change -->
+<div
+  class="modal fade"
+  id="changeImageModal"
+  tabindex="-1"
+  aria-labelledby="changeImageModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeImageModalLabel">Change Image</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        action="myprofile/changeimage"
+        id="imageEditForm"
+      >
+        <div class="modal-body">
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="image"
+              name="image"
+            />
+            <label class="custom-file-label" for="image">Choose file</label>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <input
+              type="submit"
+              value="Change Image"
+              class="btn btn-success-olive"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="../js/myprofileFormValidation.js"></script>
+{% endblock %}

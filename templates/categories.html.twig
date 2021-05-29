@@ -1,0 +1,401 @@
+{% extends "master.html.twig" %}
+
+{% block title %}Categories page
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h1>Categories</h1>
+
+		<div class="row">
+			<div class="col">
+				<div
+					class="vertical-tab" role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">Audio</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab">Baby Items</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab">Bikes</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section4" aria-controls="messages" role="tab" data-toggle="tab">Books</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section5" aria-controls="messages" role="tab" data-toggle="tab">Cameras</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section6" aria-controls="messages" role="tab" data-toggle="tab">Pets</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section7" aria-controls="messages" role="tab" data-toggle="tab">Home - Indoors</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section8" aria-controls="messages" role="tab" data-toggle="tab">Home - Outdoor</a>
+						</li>
+						<li role="presentation">
+							<a href="#Section9" aria-controls="messages" role="tab" data-toggle="tab">Vehicles</a>
+						</li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content tabs">
+						<div role="tabpanel" class="tab-pane fade in active" id="Section1">
+							<h3>Audio</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/audio.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Headphones, speakers, ampflifiers and more... You can find it here!</h6>
+									</div>
+								</div>
+                                <div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Audio' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section2">
+							<h3>Baby Items</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/babystuff.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">One stop shopping for your baby's toys, clothes, blankets and more!</h6>
+									</div>
+								</div>
+								<div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Baby Items' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section3">
+							<h3>Bikes</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/bikes.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Time for a new bike?</h6>
+									</div>
+								</div>
+								<div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Bikes' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section4">
+							<h3>Books</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/books.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Need a new book to curl up to on those rainy days?</h6>
+									</div>
+								</div>
+								<div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Books' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section5">
+							<h3>Cameras</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/cameras.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Immortalize your memories...</h6>
+									</div>
+								</div>
+								<div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Cameras' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section6">
+							<h3>Pets</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/doggowithcat.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Toys, accessories, or maybe even a new furry friend!</h6>
+									</div>
+								</div>
+                                <div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Pets' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section7">
+							<h3>Home - Indoors</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/cozyHome.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Find everything you're looking for to make your home you!</h6>
+									</div>
+								</div>
+                                <div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Home-Indoor' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section8">
+							<h3>Home - Outdoors</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/yard.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Gardening tools, patio sets, whatever you need to make yor summer fun!</h6>
+									</div>
+								</div>
+                                <div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Home-Outdoor' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section9">
+							<h3>Vehicles</h3>
+							<p>
+								<div class="card bg-dark text-white">
+									<img class="card-img" src="/img/carRepair.jpg" alt="Card image">
+									<div class="card-img-overlay">
+										<h6 class="card-text">Whether you need a new car, or just car parts...</h6>
+									</div>
+								</div>
+                                <div class="container">
+                                    <div class="row mt-2">
+                                      
+										{% for ad in advertisements %}
+										{% if ad.status == 'active' and ad.category == 'Cars & Vehicles' %}
+										<div class="col">
+										  <div class="card my-4" style="width: 10rem; height: 25rem">
+											<img src="/adimg/{{ ad.advId }}" />
+											<div class="card-body">
+											  <h5 class="card-title">{{ ad.title }}</h5>
+											  <p class="card-text">Price: {{ ad.price }}</p>
+											  <p class="card-text">Number of visits: {{ ad.visits }}</p>
+											  <a href="/addetails/{{ ad.advId }}" class="btn btn-success-olive viewdetaild">View Ad</a>
+											</div>
+										  </div>
+										</div>
+										{% endif %}
+										{% endfor %}
+                                      
+                                    </div>
+                                </div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	{# <div class="row mt-4">
+	    <div class="col">
+	    <div class="tab">
+	        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+	        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+	        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+	      </div>
+	      
+	      <div id="London" class="tabcontent">
+	        <h3>London</h3>
+	        <p>
+	            <div class="card bg-dark text-white">
+	                <img class="card-img" src="/img/cozyHome.jpg" alt="Card image">
+	                <div class="card-img-overlay">
+	                  <h5 class="card-title">Everything Home</h5>
+	                  <p class="card-text">From interior design, to outdoor patio sets, find what you're looking for!</p>
+	                  <a href="#" class="btn btn-success-olive">Read more</a>
+	                </div>
+	            </div>
+	        </p>
+	      </div>
+	      
+	      <div id="Paris" class="tabcontent">
+	        <h3>Paris</h3>
+	        <p>
+	            <div class="card bg-dark text-white">
+	                <img class="card-img" src="/img/doggowithcat.jpg" alt="Card image">
+	                <div class="card-img-overlay">
+	                  <h5 class="card-title">Pets are just part of the family</h5>
+	                  <p class="card-text">One stop shopping for your pet's toys, bedding, or even for a new furry friend!</p>
+	                  <a href="#" class="btn btn-success-olive">Read more</a>
+	                </div>
+	            </div>
+	        </p> 
+	      </div>
+	      
+	      <div id="Tokyo" class="tabcontent">
+	        <h3>Tokyo</h3>
+	        <p>
+	            <div class="card bg-dark text-white">
+	                <img class="card-img" src="/img/carRepair.jpg" alt="Card image">
+	                <div class="card-img-overlay">
+	                  <h5 class="card-title">Hot wheels</h5>
+	                  <p class="card-text">Need a new car? Or maybe just some parts...</p>
+	                  <a href="#" class="btn btn-success-olive">Read more</a>
+	                </div>
+	            </div>
+	        </p>
+	      </div>
+	      </div>
+	</div> #}
+
+
+	{% if errorList %}
+		<ul>
+			{% for error in errorList %}
+				<li class="errorMessage">{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock content %}

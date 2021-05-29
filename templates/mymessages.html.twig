@@ -1,0 +1,87 @@
+{% extends "master.html.twig" %} {% block title %}My messages{% endblock %} {%
+block content %} {% if flashMessage %}
+<div class="container">
+  <div
+    class="alert alert-warning alert-dismissible fade show mt-4"
+    role="alert"
+  >
+    {{ flashMessage }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %} {% if errorList %}
+<div class="container pt-4">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for error in errorList %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+
+<div class="container mt-4">
+  <ul class="nav nav-tabs mt-1">
+    <li class="nav-item">
+      <a class="nav-link" href="/myprofile">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/mymessages">My Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/ads">My Ads</a>
+    </li>
+  </ul>
+  <div class="row my-4">
+    <div class="col">
+      <p class="h4 mb-4">Inbox messages</p>
+      {% for message in messages %}
+      <div class="card mb-3">
+        <div class="row">
+          <div class="col-md-4 align-items-center d-flex">
+            <img
+              src="/adimg/{{ message.advId }}"
+              class="card-img img-fluid img-thumbnail"
+              alt="{{ message.title }}"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">{{ message.title }}</h5>
+              <p class="card-text">
+                Messages from
+                <span class="font-weight-bold">{{ message.name }}</span>
+              </p>
+              <p class="card-text">
+                {{ message.message }}
+              </p>
+              <p class="card-text">
+                Contact email:
+                <span class="font-weight-bold">{{ message.email }}</span>
+              </p>
+              <p class="card-text">
+                Mesaage created:
+                <small class="text-muted">{{ message.creationTS }}</small>
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-2 d-flex flex-md-column justify-content-md-around p-4"
+          >
+            <a
+              href="/mymessages/delete/{{ message.messageId }}"
+              class="btn btn-success-olive"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %} {% block scripts %} {% endblock scripts %}

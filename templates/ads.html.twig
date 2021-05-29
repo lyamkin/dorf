@@ -1,0 +1,103 @@
+{% extends "master.html.twig" %} {% block title %}Post Ad{% endblock %} {% block
+content %} {% if errorList %}
+<div class="container pt-4">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for error in errorList %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %} {% if flashMessage %}
+<div class="container">
+  <div
+    class="alert alert-warning alert-dismissible fade show mt-4"
+    role="alert"
+  >
+    {{ flashMessage }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+
+<div class="container">
+  <ul class="nav nav-tabs mt-1">
+    <li class="nav-item">
+      <a class="nav-link" href="/myprofile">My Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/mymessages">My Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/ads">My Ads</a>
+    </li>
+  </ul>
+
+  <h4 class="mt-4">Active Ads</h4>
+  <div class="row mt-2">
+    {% for ad in advertisements %} {% if ad.status == 'active' %}
+    <div class="col col-12 col-md-4 col-lg-3 card-deck">
+      <div class="card my-4">
+        <img
+          class="card-img-top img-thumbnail"
+          src="/adimg/{{ ad.advId }}"
+          alt="{{ ad.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ ad.title }}</h5>
+          <p class="card-text">Price: {{ ad.price }}</p>
+          <p class="card-text">Number of visits: {{ ad.visits }}</p>
+        </div>
+        <div class="card-footer">
+          <a
+            class="btn btn-success-olive viewdetaild"
+            href="/postad/edit/{{ ad.advId }}"
+            >Edit</a
+          >
+          <a
+            href="/deletead/{{ ad.advId }}"
+            class="btn btn-success-olive viewdetaild"
+            >Delete</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+  <h4 class="mt-4">Inactive Ads</h4>
+  <div class="row mt-2">
+    {% for ad in advertisements %} {% if ad.status == 'inactive' %}
+    <div class="col col-12 col-md-4 col-lg-3">
+      <div class="card my-4">
+        <img
+          class="card-img-top img-thumbnail"
+          src="/adimg/{{ ad.advId }}"
+          alt="{{ ad.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ ad.title }}</h5>
+          <p class="card-text">Price: {{ ad.price }}</p>
+          <p class="card-text">Number of visits: {{ ad.visits }}</p>
+        </div>
+        <div class="card-footer">
+          <a
+            class="btn btn-success-olive viewdetaild"
+            href="/postad/edit/{{ ad.advId }}"
+            >Edit</a
+          >
+          <a
+            href="/deletead/{{ ad.advId }}"
+            class="btn btn-success-olive viewdetaild"
+            >Delete</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</div>
+{% endblock content %} {% block scripts %} {% endblock scripts %}

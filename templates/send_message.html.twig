@@ -1,0 +1,63 @@
+{% extends "master.html.twig" %} {% block title %}My messages{% endblock %} {%
+block content %} {% if flashMessage %}
+<div class="container">
+  <div
+    class="alert alert-warning alert-dismissible fade show mt-4"
+    role="alert"
+  >
+    {{ flashMessage }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %} {% if errorList %}
+<div class="container pt-4">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for error in errorList %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+
+<div class="container mt-4">
+  <div class="row my-4">
+    <div class="col">
+      <p class="h4">Send a message form</p>
+      <div class="card mt-4">
+        <div class="card-body">
+          <form
+            method="POST"
+            enctype="multipart/form-data"
+            id="sendMessageForm"
+          >
+            <div class="form-group text-muted">
+              <label for="message">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="3"
+                name="message"
+                >{{ message }}</textarea
+              >
+            </div>
+            <div class="modal-footer">
+              <input
+                type="submit"
+                value="Send a message"
+                class="btn btn-success-olive"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %} {% block scripts %}
+<script src="../js/sendMessageFormValidation.js"></script>
+{% endblock scripts %}

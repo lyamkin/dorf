@@ -1,0 +1,91 @@
+{% extends "master.html.twig" %} {% block title %}Register me{% endblock %} {%
+block content %} {% if errorList %}
+<div class="container pt-4">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {% for error in errorList %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+{% endif %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        class="mx-5 my-4 px-5 py-5 border"
+        id="registerUserForm"
+      >
+        <h3 class="text-center form-text text-muted">Register</h3>
+        <div class="form-group text-muted">
+          <i class="material-icons">person</i>
+          <label for="name">User name:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            value="{{ v.name }}"
+            id="name"
+          />
+        </div>
+        <div class="form-group text-muted">
+          <i class="material-icons">email</i>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            value="{{ v.email }}"
+            id="email"
+          />
+        </div>
+        <div class="form-group text-muted">
+          <i class="material-icons">lock</i>
+          <label for="pass1">Password:</label>
+          <input type="password" class="form-control" name="pass1" id="pass1" />
+        </div>
+        <div class="form-group text-muted">
+          <i class="material-icons">lock</i>
+          <label for="pass1">Password (repeated):</label>
+          <input type="password" class="form-control" name="pass2" id="pass2" />
+        </div>
+        <div class="form-group text-muted">
+          <i class="material-icons">contact_mail</i>
+          <label for="postal">Postal Code:</label>
+          <input type="text" class="form-control" name="postal" id="postal" />
+        </div>
+        <div class="form-group text-muted">
+          <i class="material-icons">phone</i>
+          <label for="phone">Phone Number:</label>
+          <input type="text" class="form-control" name="phone" id="phone" />
+        </div>
+        <div class="form-group text-muted">
+          <div>
+            <i class="material-icons">account_box</i>
+            <label for="image">Profile Picture:</label>
+          </div>
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="image"
+              name="image"
+            />
+            <label class="custom-file-label" for="image">Choose file...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success-olive">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %} {% block scripts %}
+<script src="../js/registerFormValidation.js"></script>
+{% endblock scripts %}

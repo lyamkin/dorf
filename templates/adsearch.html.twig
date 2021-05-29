@@ -1,0 +1,32 @@
+{% extends "master.html.twig" %} {% block title %}Search Result{% endblock %} {%
+block content %}
+
+<div class="container">
+  <h4 class="mt-4">Search results:</h4>
+  <div class="row mt-2">
+    {% for ad in advertisements %}
+    <div class="col col-12 col-md-4 col-lg-3 card-deck">
+      <div class="card my-4">
+        <img
+          class="card-img-top img-thumbnail"
+          src="/adimg/{{ ad.advId }}"
+          alt="{{ ad.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ ad.title }}</h5>
+          <p class="card-text">Price: {{ ad.price }}</p>
+          <p class="card-text">Number of visits: {{ ad.visits }}</p>
+        </div>
+        <div class="card-footer">
+          <a
+            href="/addetails/{{ ad.advId }}"
+            class="btn btn-success-olive viewdetaild"
+            >View Ad</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% block scripts %} {% endblock scripts %} {% endblock content %}

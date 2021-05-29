@@ -1,0 +1,174 @@
+Dorf Scrum 11/05/2021
+
+1.	What have you done?
+2.	What are you planning on doing?
+3.	What to research
+
+Jess
+1.	Trello board started (User stories done)
+2.	Brush up on libraries (slim and twig) and practice
+3.	Watch Materialize tutorials
+
+Andrew
+1.	DB creation started
+2.	Slim and twig lib's, practice
+3.	Dive into Git a bit
+
+Taline
+1.	Git Repo
+2.	As Jess said, brush up on libraries (slim and twig) and practice and finish watching tutorials for PHP
+3.	Try to come up with a starting plan / explore library options
+
+Dorf Scrum 12/05/2021
+
+Jess
+1.	Watched the materialize tutorials and feel comfortable with it. Brushed up on slim and twig and set up the project files.
+2.	Start the code for the forms / register, using the shared code from class.
+3.	More reading documentation for twig.
+
+Andrew
+1.	Finished the database and sent the script. Brushed up on slim and twig (what we already covered in class).
+2.	Finish watching materialize tutorial. Start the code for the forms / log in (and reCatpcha).
+3.	Research reCaptcha and how to implement it.
+
+Taline
+1.	Continued watching tutorial videos. Started materialize videos.
+2.	Prepare a mock-up / theme / design for website to later discuss with team. Start looking into the profile page form.
+3.	Research everything and anything we will need in order to accomplish my goals.
+
+Dorf Scrum 13/05/2021
+
+Jess
+1.	Created the register page. Had to read up on twig, libraries, code from class...
+2.	Need to create the register_success page. Work on edit profile page with Tee.
+3.	As needed.
+
+Andrew
+1.	Created the template for the login form. Finished materialize tutorial.
+2.	Try to understand how ReCaptcha works and try to implement it. Change display for error list.
+3.	As needed.
+
+Taline
+1.	Designed a mock-up of the site (6 pages). Watched more tutorials.
+2.	Work on post ad form page with Jess and keep watching more tutorials.
+3.	As needed.
+
+Dorf Scrum 14/05/2021
+
+Jess
+1.	Created the Register_success page (with success!) and started the Nav bar.
+2.	Help Taline finish post ad and research about messages and start that page aaaand work on navbar.
+3.	Messages / index.
+
+Andrew
+1.	Create a road map of our website. Changed the template for login form. Rewatched class videos.
+2.	Depending on class topic, may be working on database hosting. Otherwise, more research and work on profile page.
+3.	As needed.
+
+Taline
+1.	Created the post ad page, just need to get it to work now. Also watched materialize tutorials.
+2.	Continue the nav bar with Jess and the rest depends on class topic. Also create the Ads page.
+3.	As needed.
+
+Dorf Scrum 15-17/05/2021
+
+Jess
+1.	Fixed post ad error. Started researching message system and dynamic navbar.
+2.	Figure out dynamic navbar as well as move uploaded image to file instead of DB.
+3.	As needed.
+
+Andrew
+1.	Created My Profile page template
+2.	Fix My Profile(upload picture). Add functiomality to edit profile. Fix login Form.
+3.	As needed.
+
+Taline
+1.	Started researching message system and dynamic navbar. Watched more tutorials.
+2.	Figure out dynamic navbar as well as move uploaded image to file instead of DB.
+3.	As needed.
+
+Dorf Scrum 18/05/2021
+
+Jess
+1.	Started styling the nav bar. Made one file for all our users; profile, login, logout, register, register success. Tried to add a flash message for "user logged out".
+2.	Tackle the message system; watch some tutorials. Keep trying for that flash message.
+3.	Research message system.
+
+Andrew
+1.	Fixed My Profile picture upload. Added functionality to edit profile. Created the index page. Researched how to redirect to pages.
+2.	Try to implement the redirecting to previous page. Add a drop down menu in the navbar.
+3.	As needed.
+
+Taline
+1.	Started to create the ads page. Researching how to save uploaded pictures into folders for each user. Researching how to "keep the user logged in" on every page.
+2.	Continue the research from yesterday. Try to implement them. Add tabs to My Profile / Messages / my Ads pages. sLook at navbar styling and see if I can finish it.
+3.	As needed.
+
+Dorf Scrum 19/05/2021
+
+Jess
+1.	Navbar responds based on if user is logged in or not. And user stays logged in on all pages. Restyled forms using bootstrap.
+2.	Work on index page.
+3.	As needed
+
+Andrew
+1.	Split the edit form in my profile with modals. Used Ajax for notifications and flash messages to give user feedback. Created a form to change the password.
+2.	Work on post Ads.
+3.	As needed
+
+Taline
+1.	Started restyling the navbar with bootstrap.
+2.	Finish styling the navbar with bootstrap. When finished, work on view ads page.
+3.	As needed
+
+Dorf Scrum 20/05/2021
+
+Jess
+1.	Designed the index page. Started the implementation of the functionality and click count.
+2.	Finish up ads page with Taline.
+3.	As needed.
+
+Andrew
+1.	post ad page. fixed change / edit picture in my profile. fixed some bugs displaying the flash messages. partial fixed display advertisement on index page.
+2.	implement a count to store number of visits in DB. Ads detail page. Render picture.
+3.	As needed.
+
+Taline
+1.	Started to build the ads page.
+2.	Finish the ads page with Jess. Add nav tabs for ads / my profile / my messages.
+3.	As needed
+
+Dorf Scrum 21/05/2021
+
+Jess
+1.	Modified the navbar; added post ad button. Continued and nearly completed the user's ads page. Created categories page.
+2.	Work on Edit Ads page.
+3.	As needed.
+
+Andrew
+1.	Implemented a counter for visits. Updated the code for getting an image from the DB and displaying it in a template. Fixed a bunch of bugs. ("insects everywhere!")
+	Created details page for the ads. Updated the DB in our server and reuploaded all the files again.
+2.	Send and receive message.
+3.	As needed.
+
+Taline
+1.	Modified the navbar; added post ad button. Continued and nearly completed the user's ads page.
+2.	Continue with the Categories page to add carousel and back end.
+3.	As needed.
+
+Dorf Scrum 22/05/2021
+
+Jess
+1.	Started and got stuck on edit ads page.
+2.	Edit Ads. Start on search bar.
+3.	As needed.
+
+Andrew
+1.	Worked on the validations for all the forms.
+2.	Keep working on validations and then start messages.
+3.	As needed.
+
+Taline
+1.	Started the Categories page (redesign).
+2.	Finish backend on Categories. Start on search bar.
+3.	As needed.

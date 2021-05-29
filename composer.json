@@ -1,0 +1,10 @@
+{
+  "require": {
+    "slim/slim": "^3.12",
+    "sergeytsalkov/meekrodb": "^2.3",
+    "twig/twig": "^2.13",
+    "monolog/monolog": "^2.1",
+    "slim/twig-view": "2.5",
+    "respect/validation": "^2.0"
+  }
+}
